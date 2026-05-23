@@ -8,6 +8,8 @@ import Employees from "./pages/Employees"
 import Leave from "./pages/Leave"
 import PaySlips from "./pages/PaySlips"
 import Settings from "./pages/Settings"
+import LoginForm from "./components/LoginForm"
+import AdminLoginForm from "./components/AdminLoginForm"
 
 
 const App = () => {
@@ -16,6 +18,9 @@ const App = () => {
     <Toaster />
     <Routes>
       <Route path="/login" element={<LoginLanding/>} />
+      <Route path="/login/admin" element={<AdminLoginForm role="admin" title="Admin Login" subtitle="Login as an administrator to manage the system" />} />
+      <Route path="/login/employee" element={<LoginForm role="employee" title="Employee Login" subtitle="Login as an employee to manage your account" />} />
+
 
       <Route element={<Layout/>}>
         <Route path="/attendance" element={<Attendance/>}/>
