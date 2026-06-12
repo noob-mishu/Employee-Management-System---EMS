@@ -12,6 +12,14 @@ const Sidebar = () => {
         setUsername( dummyProfileData.firstName + " " + dummyProfileData.lastName )
     },[])
 
+    //close mobile sidebar when route changes
+    useEffect(()=>{
+        setmobileOpen(false)
+
+    },
+    
+    [pathname])
+
 
   return (
     <div>Sidebar</div>
