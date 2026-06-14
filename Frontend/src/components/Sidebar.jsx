@@ -21,6 +21,11 @@ const Sidebar = () => {
     
     [pathname])
 
+    const sidebarContent= (
+      <>
+      </>
+    )
+
 
   return (
     <>
@@ -35,7 +40,11 @@ const Sidebar = () => {
 
       </div>
     }
-    
+
+    {/*sidebar-desktop*/ }
+    <aside className={`fixed top-0 left-0 h-full w-64 bg-slate-800 text-white p-4 z-50 transform ${mobileOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex-shrink-0 $ {mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
+      {sidebarContent}
+    </aside>    
     </>
     )
 }
