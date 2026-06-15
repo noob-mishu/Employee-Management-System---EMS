@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import {dummyProfileData} from '../assets/assets'
-import { MenuIcon } from 'lucide-react'
+import { MenuIcon, UserIcon } from 'lucide-react'
 
 const Sidebar = () => {
 
@@ -23,6 +23,28 @@ const Sidebar = () => {
 
     const sidebarContent= (
       <>
+      {/*Brand Header*/ }
+      <div className='text-2xl font-bold mb-6 text-center border-b border-white/10 pb-4'>
+      <div className='flex items-center justify-center'>
+        <div className='flex items-center gap-3'>
+          <UserIcon classname='text-white size-7' />
+        </div>
+        <div>
+          <p>Employee MS</p>
+        </div>
+
+      </div>
+      </div>
+      {/*User Profile Card*/ }
+
+      {/*Section Labels*/ }
+
+      {/*Navigation Links*/ }
+
+      {/*Logout Button*/ }
+
+
+
       </>
     )
 
