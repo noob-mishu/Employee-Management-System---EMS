@@ -17,11 +17,13 @@ const Sidebar = () => {
     setmobileOpen(false);
   }, [pathname]);
 
+  const role = " " || "Employee";
+
   const sidebarContent = (
     <>
       {/*Brand Header*/}
-      <div className="text-2xl font-bold mb-6 text-center border-b border-white/10 pb-4">
-        <div className="flex items-center justify-center">
+      <div className="px-5 pt-6 pb-6 border-b border-white/6">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <UserIcon className="text-white size-7" />
             <div>
@@ -44,6 +46,24 @@ const Sidebar = () => {
         </div>
       </div>
       {/*User Profile Card*/}
+      {username && (
+        <div className="mx-3 mt-4 mb-1 p-3 border border-white/6 rounded-lg bg-white/3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-slate-600 flex items-center justify-center text-white font-semibold">
+              <span>{username.charAt(0).toUpperCase()}</span>
+            </div>
+
+            <div>
+              <p className="text-lg font-semibold text-white truncate">
+                {username}
+              </p>
+              <p className="text-sm text-slate-500 truncate">
+                {role === " ADMIN" ? "Administrator" : "Employee"}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/*Section Labels*/}
 
