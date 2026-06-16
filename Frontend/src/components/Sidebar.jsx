@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { dummyProfileData } from "../assets/assets";
-import { MenuIcon, UserIcon, XIcon } from "lucide-react";
+import {
+  MenuIcon,
+  UserIcon,
+  XIcon,
+  LayoutGridIcon,
+  CalendarIcon,
+  FileTextIcon,
+  CheckSquareIcon,
+  CreditCardIcon,
+  SettingsIcon,
+} from "lucide-react";
 
 const Sidebar = () => {
   const { pathname } = useLocation();
@@ -18,6 +28,15 @@ const Sidebar = () => {
   }, [pathname]);
 
   const role = " " || "Employee";
+  const navigationLinks = [
+    { name: "Dashboard", href: "/dashboard", icon: LayoutGridIcon },
+    { name: "Employees", href: "/employees", icon: UserIcon },
+    { name: "Attendance", href: "/attendance", icon: CalendarIcon },
+    { name: "Leaves", href: "/leaves", icon: FileTextIcon },
+    { name: "Tasks", href: "/tasks", icon: CheckSquareIcon },
+    { name: "Payslips", href: "/payslips", icon: CreditCardIcon },
+    { name: "Settings", href: "/settings", icon: SettingsIcon },
+  ];
 
   const sidebarContent = (
     <>
@@ -66,8 +85,32 @@ const Sidebar = () => {
       )}
 
       {/*Section Labels*/}
-
+      <div className="px-5 mt-6 mb-2">
+        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          Navigations
+        </p>
+      </div>
       {/*Navigation Links*/}
+      <div className="flex-1 px-3 space-y-0.5 overflow-y-auto"> 
+        {navigationLinks.map((link) => {
+          const isActive = pathname.startsWith(link.href)
+
+          return (
+            <Link
+              key={link.href}
+              to={link.href}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+                isActive
+                  ? "bg-blue-600 text-white"
+                  : "text-slate-400 hover:bg-slate-600 hover:text-white"
+              }`}
+            >
+              <link.icon size={20} />
+              <span>{link.name}</span>
+            </Link>
+          );
+        })}
+      </div>
 
       {/*Logout Button*/}
     </>
