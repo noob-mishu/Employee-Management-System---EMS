@@ -11,6 +11,7 @@ import {
   CheckSquareIcon,
   CreditCardIcon,
   SettingsIcon,
+  ChevronRight,
 } from "lucide-react";
 
 const Sidebar = () => {
@@ -27,12 +28,17 @@ const Sidebar = () => {
     setmobileOpen(false);
   }, [pathname]);
 
-  const role = " " || "Employee";
+  const role= ""||"Employee";
   const navigationLinks = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutGridIcon },
-    { name: "Employees", href: "/employees", icon: UserIcon },
+    
+    role === "ADMIN" ? {
+      name: "Employees",
+      href: "/employees",
+      icon: UserIcon
+    }:
     { name: "Attendance", href: "/attendance", icon: CalendarIcon },
-    { name: "Leaves", href: "/leaves", icon: FileTextIcon },
+    { name: "Leave", href: "/leave", icon: FileTextIcon },
     { name: "Tasks", href: "/tasks", icon: CheckSquareIcon },
     { name: "Payslips", href: "/payslips", icon: CreditCardIcon },
     { name: "Settings", href: "/settings", icon: SettingsIcon },
@@ -77,7 +83,7 @@ const Sidebar = () => {
                 {username}
               </p>
               <p className="text-sm text-slate-500 truncate">
-                {role === " ADMIN" ? "Administrator" : "Employee"}
+                {role === "ADMIN" ? "Administrator" : "Employee"}
               </p>
             </div>
           </div>
@@ -91,22 +97,28 @@ const Sidebar = () => {
         </p>
       </div>
       {/*Navigation Links*/}
-      <div className="flex-1 px-3 space-y-0.5 overflow-y-auto"> 
+      <div className="flex-1 px-3 space-y-0.5 overflow-y-auto">
         {navigationLinks.map((link) => {
-          const isActive = pathname.startsWith(link.href)
+          const isActive = pathname.startsWith(link.href);
 
           return (
             <Link
               key={link.href}
               to={link.href}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                isActive
-                  ? "bg-blue-600 text-white"
-                  : "text-slate-400 hover:bg-slate-600 hover:text-white"
-              }`}
+              className={`group flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative ${isActive ? "bg-indigo-500/12 text-indigo-300" : "text-slate-400 hover:bg-white/4 hover:text-white"}`}
             >
-              <link.icon size={20} />
-              <span>{link.name}</span>
+              {isActive && (
+                <div className="absolute left-0 top-1/2 w-1 h-5 -translate-y-1/2 rounded-r-full bg-indigo-500"></div>
+              )}
+
+              <link.icon
+                size={18}
+                className={`shirnk-0 ${isActive ? "text-indigo-400" : "text-slate-400 group-hover:text-slate-300"}`}
+              />
+              <span className="flex-1 truncate">{link.name}</span>
+              {isActive && (
+                <ChevronRight size={16} className="text-indigo-500/5" />
+              )}
             </Link>
           );
         })}

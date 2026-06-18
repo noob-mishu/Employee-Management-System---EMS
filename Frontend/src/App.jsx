@@ -10,6 +10,7 @@ import PaySlips from "./pages/PaySlips"
 import Settings from "./pages/Settings"
 import LoginForm from "./components/LoginForm"
 import AdminLoginForm from "./components/AdminLoginForm"
+import Tasks from "./pages/Tasks"
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/employees" element={<Employees/>}/>
         <Route path="/leave" element={<Leave/>}/>
+        <Route path="/tasks" element={<Tasks/>}/>
         <Route path="/payslips" element={<PaySlips/>}/>
         <Route path="/settings" element={<Settings/>}/>
       </Route>
