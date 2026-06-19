@@ -12,6 +12,7 @@ import {
   CreditCardIcon,
   SettingsIcon,
   ChevronRight,
+  LogOutIcon,
 } from "lucide-react";
 
 const Sidebar = () => {
@@ -43,6 +44,10 @@ const Sidebar = () => {
     { name: "Payslips", href: "/payslips", icon: CreditCardIcon },
     { name: "Settings", href: "/settings", icon: SettingsIcon },
   ];
+
+  const handleLogout =()=>{
+    window.location.href = "/login";
+  }
 
   const sidebarContent = (
     <>
@@ -125,6 +130,16 @@ const Sidebar = () => {
       </div>
 
       {/*Logout Button*/}
+
+      <div className="px-5 mt-4 pt-4 border-t border-white/6">
+        <button 
+          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/4 hover:text-white cursor-pointer"
+          onClick={handleLogout}
+        >
+          <LogOutIcon size={24}/>
+          <span>Log Out</span>
+        </button>
+      </div>
     </>
   );
 
