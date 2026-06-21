@@ -13,7 +13,11 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="text-center text-gray-500">Loading dashboard...</div>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+
+        <p className="mt-4 text-gray-500">Loading dashboard...</p>
+      </div>
     );
   }
 
