@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { dummyEmployeeDashboardData } from "../assets/assets";
+import EmployeeDashboard from "../components/EmployeeDashboard";
 const Dashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,7 +34,7 @@ const Dashboard = () => {
     return <div>admin dashboard</div>;
   }
 
-  return <div>employee dashboard</div>;
+  return <EmployeeDashboard data={data} /> ;
 };
 
 export default Dashboard;

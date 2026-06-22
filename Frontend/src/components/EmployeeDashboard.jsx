@@ -1,4 +1,4 @@
-import { CalendarIcon } from "luicide-react";
+import { CalendarIcon, FileTextIcon, DollarSignIcon} from "luicide-react";
 
 const EmployeeDashboard = ({ data }) => {
   const employeeData = data.employee;
@@ -25,7 +25,18 @@ const EmployeeDashboard = ({ data }) => {
       subtitle: "Most Recent Payment",
     },
   ];
-  return <div>EmployeeDashboard</div>;
+  return (
+    <div className="animate-fade-in">
+      <div className="page-header">
+        <h1 className="page-title">
+          Welcome, {employeeData?.firstName}!
+        </h1>
+
+        <p>{employeeData?.position} - {employeeData?.department || "No Department"}</p>
+      </div>
+
+    </div>
+  )
 };
 
 export default EmployeeDashboard;
