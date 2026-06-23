@@ -1,4 +1,4 @@
-import { CalendarIcon, FileTextIcon, DollarSignIcon } from "luicide-react";
+import { CalendarIcon, FileTextIcon, DollarSignIcon, Link, ArrowRightIcon } from "lucide-react";
 
 const EmployeeDashboard = ({ data }) => {
   const employeeData = data.employee;
@@ -57,6 +57,18 @@ const EmployeeDashboard = ({ data }) => {
             <card.icon className="size-10 p-2.5 rounded-lg bg-slate-100 text-slate-600 group-hover:bg-indigo-50  group-hover:text-indigo-600 transition-colors duration-200" />
           </div>
         ))}
+
+
+      </div>
+
+      <div>
+       <Link to="/employee/attendance" className="btn btn-primary text-sm  hover:underline">
+          Mark Attendance <ArrowRightIcon className="inline-block size-4 ml-1" />
+        </Link>
+
+        <Link to="/employee/leaves" className="btn btn-primary text-sm  hover:underline ml-4">
+          View Leaves <ArrowRightIcon className="inline-block size-4 ml-1" />
+        </Link>
       </div>
     </div>
   );
